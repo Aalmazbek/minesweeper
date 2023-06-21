@@ -1,0 +1,247 @@
+.Cell{
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+}
+
+.Cell::after{
+  content: '';
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+
+  background-color: rgba(228, 187, 129, 1);
+  background-size: 50%!important;
+  background-repeat: no-repeat!important;
+  background-position: 50%!important;
+
+  clip-path: inset(7.5% 7.5% 7.5% 7.5% round 5px);
+
+  transition: 0.2s;
+}
+
+.full-merge::after{
+  clip-path: inset(0 0 0 0 round 0 0 0 0);
+}
+.merge-trb::after{
+  clip-path: inset(0 0 0 7.5% round 0px 0px 0px 0px);
+}
+.merge-trl::after{
+  clip-path: inset(0 0 7.5% 0 round 0px 0px 0px 0px);
+}
+.merge-tbl::after{
+  clip-path: inset(0 7.5% 0 0 round 0px 0px 0px 0px);
+}
+.merge-rbl::after{
+  clip-path: inset(7.5% 0 0 0 round 0px 0px 0px 0px);
+}
+.merge-tr::after{
+  clip-path: inset(0 0 7.5% 7.5% round 0px 0px 0px 5px);
+}
+.merge-tl::after{
+  clip-path: inset(0 7.5% 7.5% 0 round 0px 0px 5px 0px);
+}
+.merge-bl::after{
+  clip-path: inset(7.5% 7.5% 0 0 round 0px 5px 0px 0px);
+}
+.merge-br::after{
+  clip-path: inset(7.5% 0 0 7.5% round 5px 0px 0px 0px);
+}
+.merge-tb::after{
+  clip-path: inset(0 7.5% 0 7.5% round 0px 0px 0px 0px);
+}
+.merge-rl::after{
+  clip-path: inset(7.5% 0 7.5% 0 round 0px 0px 0px 0px);
+}
+.merge-top::after{
+  clip-path: inset(0 7.5% 7.5% 7.5% round 0px 0px 5px 5px);
+}
+.merge-right::after{
+  clip-path: inset(7.5% 0 7.5% 7.5% round 5px 0px 0px 5px);
+}
+.merge-bottom::after{
+  clip-path: inset(7.5% 7.5% 0 7.5% round 5px 5px 0px 0px);
+}
+.merge-left::after{
+  clip-path: inset(7.5% 7.5% 7.5% 0 round 0px 5px 5px 0px);
+}
+
+.revealed::after{
+  border-radius: 5px;
+  animation: disappear 1s;
+  transform: scale(0);
+}
+
+.bomb::after{
+  clip-path: inset(7.5% 7.5% 7.5% 7.5% round 5px);
+  background: url('../../assets/ic_mine_black.svg') rgb(222, 37, 71);
+}
+
+.flagged::after{
+  background: url('https://img.icons8.com/?size=512&id=94733&format=png'), gray;
+}
+
+
+.Cell > img{
+  width: 50%;
+}
+
+
+.Cell > span{
+  width: 8px;
+  height: 8px;
+
+  position: absolute;
+  z-index: 10;
+
+  background-color: var(--main-bg-color);
+
+  border-radius: 100%;
+
+  transition: 0.2s;
+}
+
+.cornerTL{
+  top: -5px;
+  left: -5px;
+  transform: translate(-3px, -3px);
+}
+.cornerTR{
+  top: -5px;
+  right: -5px;
+  transform: translate(3px, -3px);
+}
+.cornerBR{
+  bottom: -5px;
+  right: -5px;
+  transform: translate(3px, 3px);
+}
+.cornerBL{
+  bottom: -5px;
+  left: -5px;
+  transform: translate(-3px, 3px);
+}
+
+.merge-corner-tl .cornerTL{
+  transform: translate(0);
+}
+
+.merge-corner-tr .cornerTR{
+  transform: translate(0);
+}
+
+.merge-corner-br .cornerBR{
+  transform: translate(0);
+}
+
+.merge-corner-bl .cornerBL{
+  transform: translate(0);
+}
+
+
+
+.borderTop, .borderRight, .borderBottom, .borderLeft{
+  position: absolute;
+}
+
+.borderTop, .borderBottom{
+  width: 70%;
+  height: 0.2px;
+  background-color: rgb(67, 67, 67);
+}
+
+
+
+.borderLeft, .borderRight{
+  width: 0.2px;
+  height: 70%;
+  background-color: rgb(67, 67, 67);
+}
+
+
+
+.borderTop{
+  top: -0.1px;
+  left: 15%;
+}
+
+
+
+.borderRight{
+  top: 15%;
+  right: -0.1px;
+}
+
+
+
+.borderBottom{
+  bottom: -0.1px;
+  left: 15%;
+}
+
+
+
+.borderLeft{
+  top: 15%;
+  left: -0.1px;
+}
+
+
+
+
+
+@keyframes disappear {
+  0%{
+    transform: scale(1);
+  }
+  25%{
+    transform: scale(0.8);
+  }
+  50%{
+    transform: scale(0.9);
+  }
+  100%{
+    transform: scale(0);
+  }
+}
+
+
+
+
+@keyframes mergeCornerTl {
+  from{
+    transform: translate(-3px,-3px);
+  }
+  to{
+    transform: translate(0, 0);
+  }
+}
+@keyframes mergeCornerTr {
+  from{
+    transform: translate(3px,-3px);
+  }
+  to{
+    transform: translate(0, 0);
+  }
+}
+@keyframes mergeCornerBr {
+  from{
+    transform: translate(3px,3px);
+  }
+  to{
+    transform: translate(0, 0);
+  }
+}
+@keyframes mergeCornerBl {
+  from{
+    transform: translate(-3px,3px);
+  }
+  to{
+    transform: translate(0, 0);
+  }
+}

@@ -1,0 +1,27 @@
+.board{
+  overflow: hidden;
+  clip-path: inset(2.85px 2.85px 2.85px 2.85px round 5px);
+
+  border-radius: 5px;
+}
+
+.board_lose{
+  animation: lose 0.1s;
+  transform: translate(0%, 0%); 
+}
+
+
+@keyframes lose{
+  0%{
+   transform: translate(0%, 0%); 
+  }
+  33%{
+   transform: translate(10%, 0); 
+  }
+  66%{
+   transform: translate(-10%, 0); 
+  }
+  100%{
+   transform: translate(0%, 0%); 
+  }
+}
