@@ -149,7 +149,7 @@ function Game() {
 
   return (
     <article className="py-5 flex flex-col items-center">
-      <h1 className="mb-10 flex items-center gap-2 text-2xl">
+      <h1 className="mb-0 sm:mb-10 flex items-center gap-2 text-2xl">
         <img src={ic_mine} alt="mine-icon.svg" className="w-10" />
         {!isFirstMove ? totalMines - flagged : ''}
       </h1>

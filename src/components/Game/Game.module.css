@@ -11,6 +11,21 @@
 }
 
 
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+  .board{
+    transform: scale(0.5);
+  }
+}
+
+
 @keyframes lose{
   0%{
    transform: translate(0%, 0%); 
